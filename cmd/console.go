@@ -32,7 +32,7 @@ func NewConsole() *Console {
 
 func (c *Console) PrintMessage(message string) {
 	if c.verbosity == Quiet {
-		return 
+		return
 	}
 	fmt.Print(message)
 }
@@ -55,11 +55,11 @@ func (c *Console) PrintReplacement(prefix string, replacement *Replacement) {
 		outputFragments[i] = frag[1]
 	}
 
-	redPrefix := fmt.Sprintf("%s%s", prefix, color.New(color.FgRed).Sprint("- "))
-    c.printFragments(redPrefix, redUnderline, replacement.ReplacementInput(), inputFragments)
+	redPrefix := fmt.Sprintf("%s%s", prefix, color.New(color.FgRed).Sprint(" - "))
+	c.printFragments(redPrefix, redUnderline, replacement.ReplacementInput(), inputFragments)
 
-	greenPrefix := fmt.Sprintf("%s%s", prefix, color.New(color.FgGreen).Sprint("+ "))
-    c.printFragments(greenPrefix, greenUnderline, replacement.ReplacementOutput(), outputFragments)
+	greenPrefix := fmt.Sprintf("%s%s", prefix, color.New(color.FgGreen).Sprint(" + "))
+	c.printFragments(greenPrefix, greenUnderline, replacement.ReplacementOutput(), outputFragments)
 }
 
 func (c *Console) printFragments(prefix string, colorFunc func(a ...interface{}) string, line string, fragments []Fragment) {
@@ -81,17 +81,17 @@ func (c *Console) printFragments(prefix string, colorFunc func(a ...interface{})
 
 		endIndex := index + len(text)
 		if endIndex > len(line) {
-            endIndex = len(line)
+			endIndex = len(line)
 		}
 
 		c.PrintMessage(colorFunc(text))
 		currentIndex = endIndex
 	}
-    
+
 	if currentIndex < len(line) {
 		c.PrintMessage(line[currentIndex:])
 	}
-    
+
 	if !strings.HasSuffix(line, "\n") {
 		c.PrintMessage("\n")
 	}

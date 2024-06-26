@@ -57,4 +57,21 @@ func main() {
 
 	// console.PrintReplacement("", replacement1)
 
+	// console := NewConsoleWithVerbosity(Normal)
+	// path := "example.txt"
+	// substringQuery1 := NewSubString("typesetting", "type system")
+
+	// filePatcher, err := NewFilePatcher(console, path, substringQuery1)
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// 	return
+	// }
+
+	// if filePatcher == nil {
+	// 	fmt.Println("No replacements made.")
+	// 	return
+	// }
+
+	// fmt.Println("New Contents:", filePatcher.NewContents)
+
 }
