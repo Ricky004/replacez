@@ -1,1 +1,3 @@
-#ReplaceZ
+# ReplaceZ
+...
+## A command line tool for Finding and replacing text from any file!
